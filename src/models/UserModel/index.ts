@@ -24,6 +24,12 @@ const UserSchema: Schema<IUser> = new Schema<IUser>(
                     ref: 'CoffeeItem',
                },
           ],
+          orders: [
+               {
+                    type: mongoose.Types.ObjectId,
+                    ref: 'Order',
+               },
+          ],
           avatar: {
                type: String,
                default: 'https://static2.yan.vn/YanNews/2167221/202102/facebook-cap-nhat-avatar-doi-voi-tai-khoan-khong-su-dung-anh-dai-dien-e4abd14d.jpg',
@@ -37,8 +43,4 @@ const UserSchema: Schema<IUser> = new Schema<IUser>(
           timestamps: true,
      }
 );
-// UserSchema.pre<IUser>('save', async function (next) {
-//     this.password = await bcrypt.hash(this.password, 10);
-//     next();
-// });
 export default mongoose.model<IUser>('User', UserSchema);

@@ -6,6 +6,7 @@ interface IUser extends Document {
      role: string;
      likedCoffeeItem: string[];
      avatar: string;
+     orders: string[];
      reftoken: String;
 }
 export default IUser;
