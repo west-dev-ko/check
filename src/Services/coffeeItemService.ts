@@ -1,5 +1,3 @@
-import { type } from 'os';
-import { BadRequestError } from '../helpers/errorHelper';
 import CoffeeItemModel from '../models/CoffeeItemModel';
 import UserModel from '../models/UserModel';
 class CoffeeItemService {

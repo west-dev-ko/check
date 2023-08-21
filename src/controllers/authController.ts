@@ -3,6 +3,7 @@ import AuthService from '../Services/authService';
 import { StatusCode } from '../common/statusCode';
 import CheckId from '../helpers/checkIdHelper';
 import { ResAuth } from '../helpers/interfacesHelper';
+
 class AuthCtr {
      Register = async (req: Request, res: Response): Promise<any> => {
           const body: { email: string; password: string; phonenumber: string } =
