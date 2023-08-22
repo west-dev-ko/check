@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
-const Connect = async (): Promise<void> => {
+const aliasConnectionString =
+     'mongodb+srv://nguyenkhangbn8501:khangbn2k1@coffee.hd94kae.mongodb.net/OrderCoffee?retryWrites=true&w=majority';
+
+const connectDb = async () => {
      try {
-          const conn = await mongoose.connect(
-               `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
-          );
-          console.log('connect db successfully');
-     } catch (error: unknown) {
-          if (typeof error === 'string') {
-               throw new Error(error);
-          } else {
-               throw new Error('khong the ket noi database');
-          }
+          await mongoose.connect(aliasConnectionString, {
+               useNewUrlParser: true,
+               useUnifiedTopology: true,
+          });
+          console.log('Connected to MongoDB alias');
+     } catch (error) {
+          console.error('Error connecting to MongoDB alias:', error);
      }
 };
-export default Connect;
+export default connectDb;
