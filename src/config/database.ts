@@ -7,6 +7,7 @@ const connectDb = async () => {
           await mongoose.connect(aliasConnectionString, {
                useNewUrlParser: true,
                useUnifiedTopology: true,
+               connectTimeoutMS: 30000, // 10 seconds
           });
           console.log('Connected to MongoDB alias');
      } catch (error) {
